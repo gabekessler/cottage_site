@@ -22,22 +22,12 @@
   = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar"), :class => :label
   = f.check_box :sidebar, :class => 'check_box'
   %span.description Ex: a simple text
-.group
+.file_group
   = f.label :page_image_file_name, t("activerecord.attributes.page.page_image_file_name", :default => "Page image file name"), :class => :label
-  = f.text_field :page_image_file_name, :class => 'text_field'
-  %span.description Ex: a simple text
-.group
-  = f.label :page_image_content_type, t("activerecord.attributes.page.page_image_content_type", :default => "Page image content type"), :class => :label
-  = f.text_field :page_image_content_type, :class => 'text_field'
-  %span.description Ex: a simple text
-.group
-  = f.label :page_image_file_size, t("activerecord.attributes.page.page_image_file_size", :default => "Page image file size"), :class => :label
-  = f.text_field :page_image_file_size, :class => 'text_field'
-  %span.description Ex: a simple text
-.group
-  = f.label :page_image_updated_at, t("activerecord.attributes.page.page_image_updated_at", :default => "Page image updated at"), :class => :label
-  = f.datetime_select :page_image_updated_at, :class => 'datetime_select'
-  %span.description Ex: a simple text
+  = f.file_field  :page_image_file_name, :class => "file_upload"
+  %span.description
+    Current Image:
+    = @page.page_image_file_name ? (image_tag @page.page_image.url(:thumb)) : "None"
 .group.navform.wat-cf
   %button.button{:type => "submit"}
     = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")

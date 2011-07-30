@@ -9,6 +9,6 @@
       = t("web-app-theme.edit", :default => "Edit")
       SlideshowImage
     .inner
-      = form_for @slideshow_image, :url => admin_slideshow_image_path(@slideshow_image), :html => { :class => :form } do |f|
+      = form_for @slideshow_image, :url => admin_slideshow_image_path(@slideshow_image), :html => { :class => :form, :multipart => true } do |f|
         = render :partial => "form", :locals => {:f => f}
 - content_for :sidebar, render(:partial => 'sidebar')
