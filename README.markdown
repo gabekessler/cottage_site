@@ -8,6 +8,7 @@ Jquery instead of Prototype
 capistrano
 blavossync
 
+
 <h2>Setup</h2>
 Devise:
 rails generate devise:install
