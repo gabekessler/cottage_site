@@ -1,14 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
-gem 'jquery-rails', '>= 0.2.6'
+gem 'rails', '3.0.6'
+gem 'jquery-rails'
 gem 'RedCloth'
 gem 'hoptoad_notifier'
-gem 'haml', '3.0.18'
+gem 'haml'
 gem 'aasm', '2.2.0'
 gem 'haml-rails'
 gem 'json_pure', '1.4.6'
-gem 'mysql'
+# gem 'mysql'
+gem 'mysql2', '< 0.3'
 gem 'aws-s3', :require=>'aws/s3'
 gem 'hpricot'
 gem 'paperclip'
@@ -21,9 +22,11 @@ gem 'devise'
 gem 'fastercsv'
 gem 'comma'
 gem 'will_paginate', '3.0.pre2'
-gem 'friendly_id', "~> 3.1"
-gem "acts-as-list"
+gem 'friendly_id', "~> 3.2.1"
 gem 'formtastic'
+gem "compass"
+gem "html5-boilerplate"
+gem "factory_girl_rails", "~> 1.1"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
