@@ -1,0 +1,17 @@
+%h1 Listing admin_slideshow_images
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @admin_slideshow_images.each do |admin_slideshow_image|
+    %tr
+      %td= link_to 'Show', admin_slideshow_image
+      %td= link_to 'Edit', edit_admin_slideshow_image_path(admin_slideshow_image)
+      %td= link_to 'Destroy', admin_slideshow_image, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Slideshow image', new_admin_slideshow_image_path

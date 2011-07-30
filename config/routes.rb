@@ -1,4 +1,12 @@
 Cottage::Application.routes.draw do
+  
+  namespace :admin do 
+    resources :pages, :slideshow_images, :services, :locations
+  end
+
+  devise_for :admins
+
+  root :to => "pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,4 +1,4 @@
-<h1>Skeleton framework for new apps.</h1>
+<h1>Cottage Website</h1>
 
 Includes:
 Flag-shih-tzu

@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Page title:
+  = @admin_page.page_title
+%p
+  %b Page description:
+  = @admin_page.page_description
+%p
+  %b Page keywords:
+  = @admin_page.page_keywords
+%p
+  %b Heading:
+  = @admin_page.heading
+%p
+  %b Body:
+  = @admin_page.body
+%p
+  %b Sidebar:
+  = @admin_page.sidebar
+%p
+  %b Page image file name:
+  = @admin_page.page_image_file_name
+%p
+  %b Page image content type:
+  = @admin_page.page_image_content_type
+%p
+  %b Page image file size:
+  = @admin_page.page_image_file_size
+%p
+  %b Page image updated at:
+  = @admin_page.page_image_updated_at
+
+= link_to 'Edit', edit_admin_page_path(@admin_page)
+\|
+= link_to 'Back', admin_pages_path
