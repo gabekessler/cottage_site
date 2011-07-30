@@ -1,17 +1,33 @@
-%h1 Listing locations
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @locations.each do |location|
-    %tr
-      %td= link_to 'Show', location
-      %td= link_to 'Edit', edit_location_path(location)
-      %td= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Location', new_location_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", admin_locations_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_location_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Locations
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location_address"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @locations.each do |location|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = location.id
+            %td
+              = link_to location.location_address, admin_location_path(location)
+            %td
+              = location.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_location_path(location)
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_location_path(location)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_location_path(location), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

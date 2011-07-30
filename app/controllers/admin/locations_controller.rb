@@ -1,4 +1,5 @@
-class LocationsController < ApplicationController
+class Admin::LocationsController < ApplicationController
+  layout 'admin'
   # GET /locations
   # GET /locations.xml
   def index

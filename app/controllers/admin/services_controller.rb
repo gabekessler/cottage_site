@@ -1,4 +1,5 @@
-class ServicesController < ApplicationController
+class Admin::ServicesController < ApplicationController
+  layout 'admin'
   # GET /services
   # GET /services.xml
   def index

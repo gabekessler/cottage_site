@@ -1,6 +1,32 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_location_path(@location)
-\|
-= link_to 'Back', locations_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", admin_locations_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_location_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_location_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location address"))
+          \:
+        = @location.location_address
+      %p
+        %b
+          = t("activerecord.attributes.admin_location.location_name", :default => t("activerecord.labels.location_name", :default => "Location name"))
+          \:
+        = @location.location_name
+      %p
+        %b
+          = t("activerecord.attributes.admin_location.location_phone", :default => t("activerecord.labels.location_phone", :default => "Location phone"))
+          \:
+        = @location.location_phone
+      %p
+        %b
+          = t("activerecord.attributes.admin_location.location_hours", :default => t("activerecord.labels.location_hours", :default => "Location hours"))
+          \:
+        = @location.location_hours
+      .wat-cf
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_location_path(@location), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_location_path(@location), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')

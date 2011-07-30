@@ -1,7 +1,14 @@
-%h1 Editing admin_slideshow_image
-
-= render 'form'
-
-= link_to 'Show', @admin_slideshow_image
-\|
-= link_to 'Back', admin_slideshow_images_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", admin_slideshow_images_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_slideshow_image_path
+      %li.active= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_slideshow_image_path
+  .content
+    %h2.title
+      = t("web-app-theme.edit", :default => "Edit")
+      SlideshowImage
+    .inner
+      = form_for @slideshow_image, :url => admin_slideshow_image_path(@slideshow_image), :html => { :class => :form } do |f|
+        = render :partial => "form", :locals => {:f => f}
+- content_for :sidebar, render(:partial => 'sidebar')

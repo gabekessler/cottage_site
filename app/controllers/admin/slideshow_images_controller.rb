@@ -1,4 +1,5 @@
-class SlideshowImagesController < ApplicationController
+class Admin::SlideshowImagesController < ApplicationController
+  layout 'admin'
   # GET /admin/slideshow_images
   # GET /admin/slideshow_images.xml
   def index

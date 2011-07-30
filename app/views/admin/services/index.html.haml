@@ -1,17 +1,33 @@
-%h1 Listing services
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @services.each do |service|
-    %tr
-      %td= link_to 'Show', service
-      %td= link_to 'Edit', edit_service_path(service)
-      %td= link_to 'Destroy', service, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Service', new_service_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", admin_services_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_service_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Services
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.admin_service.title", :default => t("activerecord.labels.title", :default => "Title"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @services.each do |service|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = service.id
+            %td
+              = link_to service.title, admin_service_path(service)
+            %td
+              = service.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_service_path(service)
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_service_path(service)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_service_path(service), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

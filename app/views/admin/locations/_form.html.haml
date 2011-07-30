@@ -1,10 +1,22 @@
-= form_for @location do |f|
-  -if @location.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@location.errors.count, "error")} prohibited this location from being saved:"
-      %ul
-        - @location.errors.full_messages.each do |msg|
-          %li= msg
-
-  .actions
-    = f.submit 'Save'
+.group
+  = f.label :location_address, t("activerecord.attributes.location.location_address", :default => "Location address"), :class => :label
+  = f.text_area :location_address, :class => 'text_area'
+  %span.description Ex: a simple text
+.group
+  = f.label :location_name, t("activerecord.attributes.location.location_name", :default => "Location name"), :class => :label
+  = f.text_field :location_name, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :location_phone, t("activerecord.attributes.location.location_phone", :default => "Location phone"), :class => :label
+  = f.text_area :location_phone, :class => 'text_area'
+  %span.description Ex: a simple text
+.group
+  = f.label :location_hours, t("activerecord.attributes.location.location_hours", :default => "Location hours"), :class => :label
+  = f.text_area :location_hours, :class => 'text_area'
+  %span.description Ex: a simple text
+.group.navform.wat-cf
+  %button.button{:type => "submit"}
+    = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  %span.text_button_padding= t("web-app-theme.or", :default => "or")
+  = link_to t("web-app-theme.cancel", :default => "Cancel"), admin_locations_path, :class => "text_button_padding link_button"

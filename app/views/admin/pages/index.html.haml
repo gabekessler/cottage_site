@@ -1,37 +1,33 @@
-%h1 Listing admin_pages
-
-%table
-  %tr
-    %th Page title
-    %th Page description
-    %th Page keywords
-    %th Heading
-    %th Body
-    %th Sidebar
-    %th Page image file name
-    %th Page image content type
-    %th Page image file size
-    %th Page image updated at
-    %th
-    %th
-    %th
-
-  - @admin_pages.each do |admin_page|
-    %tr
-      %td= admin_page.page_title
-      %td= admin_page.page_description
-      %td= admin_page.page_keywords
-      %td= admin_page.heading
-      %td= admin_page.body
-      %td= admin_page.sidebar
-      %td= admin_page.page_image_file_name
-      %td= admin_page.page_image_content_type
-      %td= admin_page.page_image_file_size
-      %td= admin_page.page_image_updated_at
-      %td= link_to 'Show', admin_page
-      %td= link_to 'Edit', edit_admin_page_path(admin_page)
-      %td= link_to 'Destroy', admin_page, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Page', new_admin_page_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", admin_pages_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_page_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Pages
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.admin_page.page_title", :default => t("activerecord.labels.page_title", :default => "Page_title"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @pages.each do |page|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = page.id
+            %td
+              = link_to page.page_title, admin_page_path(page)
+            %td
+              = page.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_page_path(page)
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_page_path(page)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_page_path(page), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+- content_for :sidebar, render(:partial => 'sidebar')

@@ -1,36 +1,62 @@
-%p#notice= notice
-
-%p
-  %b Page title:
-  = @admin_page.page_title
-%p
-  %b Page description:
-  = @admin_page.page_description
-%p
-  %b Page keywords:
-  = @admin_page.page_keywords
-%p
-  %b Heading:
-  = @admin_page.heading
-%p
-  %b Body:
-  = @admin_page.body
-%p
-  %b Sidebar:
-  = @admin_page.sidebar
-%p
-  %b Page image file name:
-  = @admin_page.page_image_file_name
-%p
-  %b Page image content type:
-  = @admin_page.page_image_content_type
-%p
-  %b Page image file size:
-  = @admin_page.page_image_file_size
-%p
-  %b Page image updated at:
-  = @admin_page.page_image_updated_at
-
-= link_to 'Edit', edit_admin_page_path(@admin_page)
-\|
-= link_to 'Back', admin_pages_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", admin_pages_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_page_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_page_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_title", :default => t("activerecord.labels.page_title", :default => "Page title"))
+          \:
+        = @page.page_title
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_description", :default => t("activerecord.labels.page_description", :default => "Page description"))
+          \:
+        = @page.page_description
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_keywords", :default => t("activerecord.labels.page_keywords", :default => "Page keywords"))
+          \:
+        = @page.page_keywords
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.heading", :default => t("activerecord.labels.heading", :default => "Heading"))
+          \:
+        = @page.heading
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.body", :default => t("activerecord.labels.body", :default => "Body"))
+          \:
+        = @page.body
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.sidebar", :default => t("activerecord.labels.sidebar", :default => "Sidebar"))
+          \:
+        = @page.sidebar
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_image_file_name", :default => t("activerecord.labels.page_image_file_name", :default => "Page image file name"))
+          \:
+        = @page.page_image_file_name
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_image_content_type", :default => t("activerecord.labels.page_image_content_type", :default => "Page image content type"))
+          \:
+        = @page.page_image_content_type
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_image_file_size", :default => t("activerecord.labels.page_image_file_size", :default => "Page image file size"))
+          \:
+        = @page.page_image_file_size
+      %p
+        %b
+          = t("activerecord.attributes.admin_page.page_image_updated_at", :default => t("activerecord.labels.page_image_updated_at", :default => "Page image updated at"))
+          \:
+        = @page.page_image_updated_at
+      .wat-cf
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_page_path(@page), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_page_path(@page), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')

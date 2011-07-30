@@ -1,40 +1,46 @@
-= form_for @page do |f|
-  -if @page.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@page.errors.count, "error")} prohibited this page from being saved:"
-      %ul
-        - @page.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :page_title
-    = f.text_field :page_title
-  .field
-    = f.label :page_description
-    = f.text_area :page_description
-  .field
-    = f.label :page_keywords
-    = f.text_field :page_keywords
-  .field
-    = f.label :heading
-    = f.text_field :heading
-  .field
-    = f.label :body
-    = f.text_area :body
-  .field
-    = f.label :sidebar
-    = f.check_box :sidebar
-  .field
-    = f.label :page_image_file_name
-    = f.text_field :page_image_file_name
-  .field
-    = f.label :page_image_content_type
-    = f.text_field :page_image_content_type
-  .field
-    = f.label :page_image_file_size
-    = f.text_field :page_image_file_size
-  .field
-    = f.label :page_image_updated_at
-    = f.datetime_select :page_image_updated_at
-  .actions
-    = f.submit 'Save'
+.group
+  = f.label :page_title, t("activerecord.attributes.page.page_title", :default => "Page title"), :class => :label
+  = f.text_field :page_title, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_description, t("activerecord.attributes.page.page_description", :default => "Page description"), :class => :label
+  = f.text_area :page_description, :class => 'text_area'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_keywords, t("activerecord.attributes.page.page_keywords", :default => "Page keywords"), :class => :label
+  = f.text_field :page_keywords, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :heading, t("activerecord.attributes.page.heading", :default => "Heading"), :class => :label
+  = f.text_field :heading, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
+  = f.text_area :body, :class => 'text_area'
+  %span.description Ex: a simple text
+.group
+  = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar"), :class => :label
+  = f.check_box :sidebar, :class => 'check_box'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_image_file_name, t("activerecord.attributes.page.page_image_file_name", :default => "Page image file name"), :class => :label
+  = f.text_field :page_image_file_name, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_image_content_type, t("activerecord.attributes.page.page_image_content_type", :default => "Page image content type"), :class => :label
+  = f.text_field :page_image_content_type, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_image_file_size, t("activerecord.attributes.page.page_image_file_size", :default => "Page image file size"), :class => :label
+  = f.text_field :page_image_file_size, :class => 'text_field'
+  %span.description Ex: a simple text
+.group
+  = f.label :page_image_updated_at, t("activerecord.attributes.page.page_image_updated_at", :default => "Page image updated at"), :class => :label
+  = f.datetime_select :page_image_updated_at, :class => 'datetime_select'
+  %span.description Ex: a simple text
+.group.navform.wat-cf
+  %button.button{:type => "submit"}
+    = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  %span.text_button_padding= t("web-app-theme.or", :default => "or")
+  = link_to t("web-app-theme.cancel", :default => "Cancel"), admin_pages_path, :class => "text_button_padding link_button"

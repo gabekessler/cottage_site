@@ -1,6 +1,42 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_admin_slideshow_image_path(@admin_slideshow_image)
-\|
-= link_to 'Back', admin_slideshow_images_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", admin_slideshow_images_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_admin_slideshow_image_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", admin_slideshow_image_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.slide_file_name", :default => t("activerecord.labels.slide_file_name", :default => "Slide file name"))
+          \:
+        = @slideshow_image.slide_file_name
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.slide_content_type", :default => t("activerecord.labels.slide_content_type", :default => "Slide content type"))
+          \:
+        = @slideshow_image.slide_content_type
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.slide_file_size", :default => t("activerecord.labels.slide_file_size", :default => "Slide file size"))
+          \:
+        = @slideshow_image.slide_file_size
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.slide_updated_at", :default => t("activerecord.labels.slide_updated_at", :default => "Slide updated at"))
+          \:
+        = @slideshow_image.slide_updated_at
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.caption", :default => t("activerecord.labels.caption", :default => "Caption"))
+          \:
+        = @slideshow_image.caption
+      %p
+        %b
+          = t("activerecord.attributes.admin_slideshow_image.slide_link", :default => t("activerecord.labels.slide_link", :default => "Slide link"))
+          \:
+        = @slideshow_image.slide_link
+      .wat-cf
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_slideshow_image_path(@slideshow_image), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_slideshow_image_path(@slideshow_image), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')
