@@ -5,8 +5,7 @@
 .group
   = f.label :page_description, t("activerecord.attributes.page.page_description", :default => "Page description"), :class => :label
   = f.text_area :page_description, :class => 'text_area'
-  :javascript 
-    CKEDITOR.replace( "page[page_description]" );
+  = render :partial => "/shared/text_editor"
   %span.description Ex: a simple text
 .group
   = f.label :page_keywords, t("activerecord.attributes.page.page_keywords", :default => "Page keywords"), :class => :label
