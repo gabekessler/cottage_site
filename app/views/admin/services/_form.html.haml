@@ -5,6 +5,7 @@
 .group
   = f.label :service_text, t("activerecord.attributes.service.service_text", :default => "Service text"), :class => :label
   = f.text_area :service_text, :class => 'text_area'
+  = render :partial => "/shared/text_editor", :locals => {:field => "service[service_text]"}
   %span.description Ex: a simple text
 .group.navform.wat-cf
   %button.button{:type => "submit"}

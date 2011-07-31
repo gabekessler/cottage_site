@@ -1,34 +1,42 @@
 .group
-  = f.label :page_title, t("activerecord.attributes.page.page_title", :default => "Page title"), :class => :label
-  = f.text_field :page_title, :class => 'text_field'
-  %span.description Ex: a simple text
-.group
-  = f.label :page_description, t("activerecord.attributes.page.page_description", :default => "Page description"), :class => :label
-  = f.text_area :page_description, :class => 'text_area'
-  = render :partial => "/shared/text_editor"
-  %span.description Ex: a simple text
-.group
-  = f.label :page_keywords, t("activerecord.attributes.page.page_keywords", :default => "Page keywords"), :class => :label
-  = f.text_field :page_keywords, :class => 'text_field'
-  %span.description Ex: a simple text
+  = f.label :title, t("activerecord.attributes.page.page_title", :default => "Title"), :class => :label
+  = f.text_field :title, :class => 'text_field'
+  %span.description This is for reference and URL purposes. Will not display on the site.
 .group
   = f.label :heading, t("activerecord.attributes.page.heading", :default => "Heading"), :class => :label
   = f.text_field :heading, :class => 'text_field'
-  %span.description Ex: a simple text
+  %span.description The heading that will appear on the page.
 .group
   = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
   = f.text_area :body, :class => 'text_area'
-  %span.description Ex: a simple text
+  = render :partial => "/shared/text_editor", :locals => {:field => "page[body]"}
+  %span.description This is the main body text of the page.
 .group
-  = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar"), :class => :label
+  = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar Item?"), :class => :label
+  %span.description Check this box if this is a sidebar item. Meta information will not be used for sidebar items.
+  %br/
   = f.check_box :sidebar, :class => 'check_box'
-  %span.description Ex: a simple text
 .file_group
   = f.label :page_image_file_name, t("activerecord.attributes.page.page_image_file_name", :default => "Page image file name"), :class => :label
   = f.file_field  :page_image_file_name, :class => "file_upload"
+  %br/
   %span.description
     Current Image:
     = @page.page_image_file_name ? (image_tag @page.page_image.url(:thumb)) : "None"
+#meta_items
+  %p These are items used for search engines.
+  .group
+    = f.label :page_title, t("activerecord.attributes.page.page_title", :default => "Page title"), :class => :label
+    = f.text_field :page_title, :class => 'text_field'
+    %span.description This is the title shown at the top of the browser window.
+  .group
+    = f.label :page_description, t("activerecord.attributes.page.page_description", :default => "Page description"), :class => :label
+    = f.text_area :page_description, :class => 'text_area'
+    %span.description 
+  .group
+    = f.label :page_keywords, t("activerecord.attributes.page.page_keywords", :default => "Page keywords"), :class => :label
+    = f.text_field :page_keywords, :class => 'text_field'
+    %span.description 
 .group.navform.wat-cf
   %button.button{:type => "submit"}
     = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
