@@ -15,7 +15,8 @@
         %b
           = t("activerecord.attributes.admin_page.page_description", :default => t("activerecord.labels.page_description", :default => "Page description"))
           \:
-        = @page.page_description
+      %p.formatted_text_area
+        = @page.page_description.html_safe
       %p
         %b
           = t("activerecord.attributes.admin_page.page_keywords", :default => t("activerecord.labels.page_keywords", :default => "Page keywords"))

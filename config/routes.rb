@@ -1,7 +1,10 @@
 Cottage::Application.routes.draw do
   
   namespace :admin do 
-    resources :pages, :slideshow_images, :services, :locations
+    resources :pages
+    resources :slideshow_images
+    resources :services
+    resources :locations
   end
 
   devise_for :admins
