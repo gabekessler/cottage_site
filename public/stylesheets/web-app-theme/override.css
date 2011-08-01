@@ -1,10 +1,57 @@
 /* Override here any style defined by web-app-theme */
 
+li {
+	list-style-position: inside;
+}
 
 .form .file_group {
   margin-bottom: 15px;
 }
 
-.form input.file_upload:focus {
-  border: none;
+.form input.text_field, .form textarea.text_area {
+	padding: 3px;
+}
+
+.form input.file_upload:hover, .form input.file_upload:focus {
+  	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border: none;
+}
+
+#meta_items {
+	background-color: #ccc;
+	padding: 10px;
+}
+
+#main .block .content #meta_items p {
+	font-size: 18px;
+	margin: 0 0 10px 0;
+}
+
+#meta_items_show {
+	border-top: 1px solid #ccc;
+}
+
+#main .block .content #meta_items_show p {
+	font-size: normal;
+}
+
+#meta_items textarea {
+	height: 60px;
+}
+
+.formatted_text_area {
+	padding: 0 10px 10px 10px;
+}
+
+.formErrors {
+	font-size: 1.5em;
+	border: 1px solid red;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.formErrors h5 {
+	margin-bottom: 10px;
 }

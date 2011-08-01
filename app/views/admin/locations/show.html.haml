@@ -7,22 +7,22 @@
   .content
     .inner
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location address"))
           \:
         = @location.location_address
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_location.location_name", :default => t("activerecord.labels.location_name", :default => "Location name"))
           \:
         = @location.location_name
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_location.location_phone", :default => t("activerecord.labels.location_phone", :default => "Location phone"))
           \:
         = @location.location_phone
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_location.location_hours", :default => t("activerecord.labels.location_hours", :default => "Location hours"))
           \:
         = @location.location_hours

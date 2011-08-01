@@ -7,12 +7,12 @@
   .content
     .inner
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_service.title", :default => t("activerecord.labels.title", :default => "Title"))
           \:
         = @service.title
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_service.service_text", :default => t("activerecord.labels.service_text", :default => "Service text"))
           \:
         = @service.service_text

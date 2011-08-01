@@ -7,45 +7,47 @@
   .content
     .inner
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_page.page_title", :default => t("activerecord.labels.page_title", :default => "Page"))
           \:
         = @page.title
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_page.heading", :default => t("activerecord.labels.heading", :default => "Heading"))
           \:
         = @page.heading
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_page.body", :default => t("activerecord.labels.body", :default => "Body"))
           \:
-      %p.formatted_text_area
+      .formatted_text_area
         = @page.body.html_safe
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_page.sidebar", :default => t("activerecord.labels.sidebar", :default => "Sidebar"))
           \:
         = @page.sidebar
       %p
-        %b
+        %strong
           = t("activerecord.attributes.admin_page.page_image_file_name", :default => t("activerecord.labels.page_image_file_name", :default => "Page Image"))
           \:
+        %br/
         = @page.page_image_file_name ? (image_tag @page.page_image.url(:thumb)) : "None"
-      #meta_items
+      #meta_items_show
+        %h3 Meta Items
         %p
-          %b
+          %strong
             = t("activerecord.attributes.admin_page.page_title", :default => t("activerecord.labels.page_title", :default => "Page title"))
             \:
           = @page.page_title
         %p
-          %b
+          %strong
             = t("activerecord.attributes.admin_page.page_description", :default => t("activerecord.labels.page_description", :default => "Page description"))
             \:
-        %p.formatted_text_area
+        %p
           = @page.page_description
         %p
-          %b
+          %strong
             = t("activerecord.attributes.admin_page.page_keywords", :default => t("activerecord.labels.page_keywords", :default => "Page keywords"))
             \:
           = @page.page_keywords

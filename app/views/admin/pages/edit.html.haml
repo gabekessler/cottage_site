@@ -10,5 +10,6 @@
       Page
     .inner
       = form_for @page, :url => admin_page_path(@page), :html => { :class => :form, :multipart => true } do |f|
+        = errors_for(@page).html_safe
         = render :partial => "form", :locals => {:f => f}
 - content_for :sidebar, render(:partial => 'sidebar')
