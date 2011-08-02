@@ -45,7 +45,7 @@ class Admin::SlideshowImagesController < ApplicationController
 
     respond_to do |format|
       if @slideshow_image.save
-        format.html { redirect_to(@slideshow_image, :notice => 'Slideshow image was successfully created.') }
+        format.html { redirect_to(admin_slideshow_image_url(@slideshow_image), :notice => 'Slideshow image was successfully created.') }
         format.xml  { render :xml => @slideshow_image, :status => :created, :location => @slideshow_image }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class Admin::SlideshowImagesController < ApplicationController
 
     respond_to do |format|
       if @slideshow_image.update_attributes(params[:slideshow_image])
-        format.html { redirect_to(@slideshow_image, :notice => 'Slideshow image was successfully updated.') }
+        format.html { redirect_to(admin_slideshow_image_url(@slideshow_image), :notice => 'Slideshow image was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,7 +77,7 @@ class Admin::SlideshowImagesController < ApplicationController
     @slideshow_image.destroy
 
     respond_to do |format|
-      format.html { redirect_to(slideshow_images_url) }
+      format.html { redirect_to(admin_slideshow_images_url) }
       format.xml  { head :ok }
     end
   end

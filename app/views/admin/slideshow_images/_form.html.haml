@@ -1,9 +1,9 @@
 .group
-  = f.label :slide_file_name, t("activerecord.attributes.slideshow_image.slide_file_name", :default => "Slide file name"), :class => :label
-  = f.file_field  :slide_file_name
+  = f.label :slide_file_name, t("activerecord.attributes.slideshow_image.slide_file_name", :default => "Slide Image"), :class => :label
+  = f.file_field  :slide
   %span.description
     Current Image:
-    = @slideshow_image.slide_file_name ? (image_tag @page_image.slide.url(:thumb)) : "None"
+    = @slideshow_image.slide_file_name ? (image_tag @slideshow_image.slide.url(:thumb)) : "None"
 .group
   = f.label :caption, t("activerecord.attributes.slideshow_image.caption", :default => "Caption"), :class => :label
   = f.text_field :caption, :class => 'text_field'

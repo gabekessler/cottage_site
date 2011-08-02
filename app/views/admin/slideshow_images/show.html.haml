@@ -8,24 +8,10 @@
     .inner
       %p
         %strong
-          = t("activerecord.attributes.admin_slideshow_image.slide_file_name", :default => t("activerecord.labels.slide_file_name", :default => "Slide file name"))
+          = t("activerecord.attributes.admin_slideshow_image.slide_file_name", :default => t("activerecord.labels.slide_file_name", :default => "Slide Image"))
           \:
-        = @slideshow_image.slide_file_name
-      %p
-        %strong
-          = t("activerecord.attributes.admin_slideshow_image.slide_content_type", :default => t("activerecord.labels.slide_content_type", :default => "Slide content type"))
-          \:
-        = @slideshow_image.slide_content_type
-      %p
-        %strong
-          = t("activerecord.attributes.admin_slideshow_image.slide_file_size", :default => t("activerecord.labels.slide_file_size", :default => "Slide file size"))
-          \:
-        = @slideshow_image.slide_file_size
-      %p
-        %strong
-          = t("activerecord.attributes.admin_slideshow_image.slide_updated_at", :default => t("activerecord.labels.slide_updated_at", :default => "Slide updated at"))
-          \:
-        = @slideshow_image.slide_updated_at
+        %br/
+        = image_tag @slideshow_image.slide.url(:thumb)
       %p
         %strong
           = t("activerecord.attributes.admin_slideshow_image.caption", :default => t("activerecord.labels.caption", :default => "Caption"))

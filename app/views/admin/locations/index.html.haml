@@ -10,24 +10,20 @@
     .inner
       %table.table
         %tr
-          %th.first ID
           %th
-            = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location_address"))
-          %th= t("web-app-theme.created_at", :default => "Created at")
+            = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location"))
+          %th= t("web-app-theme.created_at", :default => "Updated at")
           %th.last &nbsp;
         - @locations.each do |location|
           %tr{:class => cycle("odd", "even")}
             %td
-              = location.id
+              = link_to location.location_name, admin_location_path(location)
             %td
-              = link_to location.location_address, admin_location_path(location)
-            %td
-              = location.created_at
+              = location.updated_at.strftime("%D")
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_location_path(location)
+              = link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_location_path(location)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_location_path(location)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_location_path(location), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              = link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_location_path(location), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')

@@ -10,24 +10,20 @@
     .inner
       %table.table
         %tr
-          %th.first ID
           %th
             = t("activerecord.attributes.admin_service.title", :default => t("activerecord.labels.title", :default => "Title"))
-          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th= t("web-app-theme.created_at", :default => "Updated at")
           %th.last &nbsp;
         - @services.each do |service|
           %tr{:class => cycle("odd", "even")}
             %td
-              = service.id
-            %td
               = link_to service.title, admin_service_path(service)
             %td
-              = service.created_at
+              = service.updated_at.strftime("%D")
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_service_path(service)
+              = link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_service_path(service)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_service_path(service)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_service_path(service), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              = link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_service_path(service), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')

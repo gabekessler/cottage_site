@@ -10,24 +10,22 @@
     .inner
       %table.table
         %tr
-          %th.first ID
           %th
-            = t("activerecord.attributes.admin_slideshow_image.slide_file_name", :default => t("activerecord.labels.slide_file_name", :default => "Slide_file_name"))
-          %th= t("web-app-theme.created_at", :default => "Created at")
+            = t("activerecord.attributes.admin_slideshow_image.slide_file_name", :default => t("activerecord.labels.slide_file_name", :default => "Slide"))
+          %th= t("web-app-theme.created_at", :default => "Updated at")
           %th.last &nbsp;
         - @slideshow_images.each do |slideshow_image|
           %tr{:class => cycle("odd", "even")}
+
             %td
-              = slideshow_image.id
+              = link_to admin_slideshow_image_url(slideshow_image) do
+                = image_tag slideshow_image.slide.url(:thumb)
             %td
-              = link_to slideshow_image.slide_file_name, admin_slideshow_image_path(slideshow_image)
-            %td
-              = slideshow_image.created_at
+              = slideshow_image.updated_at.strftime("%D")
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", admin_slideshow_image_path(slideshow_image)
+              = link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_slideshow_image_path(slideshow_image)
               |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_admin_slideshow_image_path(slideshow_image)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_slideshow_image_path(slideshow_image), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              = link_to "#{t("web-app-theme.delete", :default => "Delete")}", admin_slideshow_image_path(slideshow_image), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
       .actions-bar.wat-cf
         .actions
 - content_for :sidebar, render(:partial => 'sidebar')

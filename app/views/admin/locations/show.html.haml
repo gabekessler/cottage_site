@@ -8,22 +8,23 @@
     .inner
       %p
         %strong
-          = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Location address"))
-          \:
-        = @location.location_address
-      %p
-        %strong
-          = t("activerecord.attributes.admin_location.location_name", :default => t("activerecord.labels.location_name", :default => "Location name"))
+          = t("activerecord.attributes.admin_location.location_name", :default => t("activerecord.labels.location_name", :default => "Name"))
           \:
         = @location.location_name
       %p
         %strong
-          = t("activerecord.attributes.admin_location.location_phone", :default => t("activerecord.labels.location_phone", :default => "Location phone"))
+          = t("activerecord.attributes.admin_location.location_address", :default => t("activerecord.labels.location_address", :default => "Address"))
+          \:
+        %br/
+        = @location.location_address
+      %p
+        %strong
+          = t("activerecord.attributes.admin_location.location_phone", :default => t("activerecord.labels.location_phone", :default => "Phone"))
           \:
         = @location.location_phone
       %p
         %strong
-          = t("activerecord.attributes.admin_location.location_hours", :default => t("activerecord.labels.location_hours", :default => "Location hours"))
+          = t("activerecord.attributes.admin_location.location_hours", :default => t("activerecord.labels.location_hours", :default => "Hours"))
           \:
         = @location.location_hours
       .wat-cf

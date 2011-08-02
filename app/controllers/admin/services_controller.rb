@@ -45,7 +45,7 @@ class Admin::ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to(@service, :notice => 'Service was successfully created.') }
+        format.html { redirect_to(admin_service_url(@service), :notice => 'Service was successfully created.') }
         format.xml  { render :xml => @service, :status => :created, :location => @service }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class Admin::ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
-        format.html { redirect_to(@service, :notice => 'Service was successfully updated.') }
+        format.html { redirect_to(admin_service_url(@service), :notice => 'Service was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,7 +77,7 @@ class Admin::ServicesController < ApplicationController
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to(services_url) }
+      format.html { redirect_to(admin_services_url) }
       format.xml  { head :ok }
     end
   end

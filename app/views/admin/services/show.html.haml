@@ -15,7 +15,8 @@
         %strong
           = t("activerecord.attributes.admin_service.service_text", :default => t("activerecord.labels.service_text", :default => "Service text"))
           \:
-        = @service.service_text
+        .formatted_text_area
+          = @service.service_text.html_safe
       .wat-cf
         = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_service_path(@service), :class => "button"
         = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_service_path(@service), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"

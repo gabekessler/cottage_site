@@ -45,7 +45,7 @@ class Admin::LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to(@location, :notice => 'Location was successfully created.') }
+        format.html { redirect_to(admin_location_url(@location), :notice => 'Location was successfully created.') }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class Admin::LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.update_attributes(params[:location])
-        format.html { redirect_to(@location, :notice => 'Location was successfully updated.') }
+        format.html { redirect_to(admin_location_url(@location), :notice => 'Location was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,7 +77,7 @@ class Admin::LocationsController < ApplicationController
     @location.destroy
 
     respond_to do |format|
-      format.html { redirect_to(locations_url) }
+      format.html { redirect_to(admin_locations_url) }
       format.xml  { head :ok }
     end
   end
