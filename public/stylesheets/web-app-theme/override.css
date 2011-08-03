@@ -1,1 +1,18 @@
 /* Override here any style defined by web-app-theme */
+
+.form input.text_field, .form textarea.text_area {
+  padding: 5px 3px;
+}
+
+.form textarea.text_area {
+  font-size: 1em;
+}
+
+#meta_items {
+	padding: 10px;
+	background-color: #ccc;
+}
+
+#meta_items input, #meta_items textarea {
+	width: 99%;
+}
