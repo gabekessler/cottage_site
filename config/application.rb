@@ -14,7 +14,7 @@ module Cottage
       Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "admin" : "sign" }
       Devise::ConfirmationsController.layout "sign"
       Devise::UnlocksController.layout "sign"            
-      Devise::PasswordsController.layout "sign"        
+      Devise::PasswordsController.layout "admin"        
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
