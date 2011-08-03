@@ -10,7 +10,7 @@
     #container
       #header
         %h1
-          %a{:href => "/"} Cottage Health Care Services
+          = link_to "Cottage Health Care Services", root_url
         #user-navigation
           %ul.wat-cf
             %li
@@ -18,7 +18,7 @@
             %li
               %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
             %li
-              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+              = link_to t("web-app-theme.logout", :default => "Logout"), destroy_user_session_path, :method => :delete
         #main-navigation
           %ul.wat-cf
             %li{:class => controller.controller_path == 'admin/pages' ? 'active' : '' }
@@ -29,6 +29,8 @@
               %a{:href => admin_slideshow_images_path} Slideshow Images
             %li{:class => controller.controller_path == 'admin/locations' ? 'active' : '' }
               %a{:href => admin_locations_path} Locations
+            %li{:class => controller.controller_path == 'admin/users' ? 'active' : '' }
+              %a{:href => admin_users_path} Users
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|

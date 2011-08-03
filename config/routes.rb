@@ -1,13 +1,14 @@
 Cottage::Application.routes.draw do
   
+  devise_for :users, :skip => :registrations
+
   namespace :admin do 
     resources :pages
     resources :slideshow_images
     resources :services
     resources :locations
+    resources :users
   end
-
-  devise_for :admins
 
   root :to => "admin/pages#index"
   # The priority is based upon order of creation:

@@ -1,0 +1,18 @@
+%h1 Cottage Health Care Services
+.block#block-login
+  %h2 Forgot your password?
+  .content.login
+    .flash
+      - flash.each do |type, message|
+        %div{ :class => "message #{type}" }
+          %p= message
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "form login" }) do |f|
+      .group.wat-cf
+        .left= f.label :email, :class => "label right"
+        .right= f.text_field :email, :class => "text_field"
+      .group.wat-cf
+        .right
+          %button.button{ :type => "submit" }
+            = image_tag "web-app-theme/icons/tick.png"
+            Send New Password
+    = render :partial => "devise/shared/links"
