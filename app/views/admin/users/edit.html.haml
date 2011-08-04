@@ -11,4 +11,9 @@
     .inner
       = form_for @user, :url => admin_user_path(@user), :html => { :class => :form } do |f|
         = render :partial => "form", :locals => {:f => f}
+      #meta_items
+        %h3 Change Password
+        %p Leave blank if you don't want to change your password.
+        = form_for @user, :url => admin_user_path(@user), :html => { :class => :form } do |f|
+          = render :partial => "passwords", :locals => {:f => f}
 - content_for :sidebar, render(:partial => 'sidebar')
