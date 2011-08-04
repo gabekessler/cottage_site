@@ -4,15 +4,65 @@
   padding: 5px 3px;
 }
 
+.form .group {
+	background-color: #ddd;
+	padding: 10px;
+}
+
 .form textarea.text_area {
   font-size: 1em;
 }
 
+.form #page_heading {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.form label.label {
+	color: #444;
+	letter-spacing: 2px;	
+}
+
+.form .description {
+	text-shadow: #ddd -1px 1px 1px;
+	line-height: 20px;
+	font-style: normal;
+	font-size: 12px;
+}
+
 #meta_items {
 	padding: 10px;
-	background-color: #ccc;
+	background-color: #ddd;
+	margin-top: 10px;
 }
 
 #meta_items input, #meta_items textarea {
 	width: 99%;
+}
+
+/* STRUCTURE */
+
+#form_page #main, #form_page .inner, #form_page .content {
+	background-color: #aaa;
+}
+/*#sidebar {
+  width: 300px;
+  float: left;
+margin-left: 20px;
+}*/
+
+#left_column {
+	width: 30%;
+	float: left;
+}
+
+#right_column {
+	width: 60%;
+	float: right;
+}
+
+/* HELPERS */
+
+.clear {
+	clear: both;
 }

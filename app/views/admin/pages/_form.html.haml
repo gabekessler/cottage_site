@@ -6,24 +6,31 @@
   = f.label :heading, t("activerecord.attributes.page.heading", :default => "Heading"), :class => :label
   %span.description The heading that will appear on the page.
   = f.text_field :heading, :class => 'text_field'
-.group
-  = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
-  %span.description This is the main body text of the page.
-  = f.text_area :body, :class => 'text_area'
-  = render :partial => "/shared/text_editor", :locals => {:field => "page[body]"}
-.group
-  = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar Item?"), :class => :label
-  %span.description Check this box if this is a sidebar item. Meta information will not be used for sidebar items.
-  %br/
-  = f.check_box :sidebar, :class => 'check_box'
-.file_group
+  
+.group#left_column
   = f.label :page_image_file_name, t("activerecord.attributes.page.page_image_file_name", :default => "Page image file name"), :class => :label
   = f.file_field  :page_image, :class => "file_upload"
   %br/
   %span.description
     Current Image:
-    = @page.page_image_file_name ? (image_tag @page.page_image.url(:thumb)) : "None"
+  %p
+    = @page.page_image_file_name ? (image_tag @page.page_image.url(:medium)) : "None"
+  
+.group#right_column
+  = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
+  %span.description This is the main body text of the page.
+  = f.text_area :body, :class => 'text_area'
+  = render :partial => "/shared/text_editor", :locals => {:field => "page[body]"}
+
+%br.clear  
+.group
+  = f.label :sidebar, t("activerecord.attributes.page.sidebar", :default => "Sidebar Item?"), :class => :label
+  %span.description Check this box if this is a sidebar item. Meta information will not be used for sidebar items.
+  %br/
+  = f.check_box :sidebar, :class => 'check_box'
+
 #meta_items
+  %h3 Meta Data
   %p.meta_p These are items used for search engines. No formatting please.
   .group
     = f.label :page_title, t("activerecord.attributes.page.page_title", :default => "Page title"), :class => :label
