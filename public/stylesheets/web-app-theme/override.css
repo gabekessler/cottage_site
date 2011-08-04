@@ -4,8 +4,8 @@
   padding: 5px 3px;
 }
 
-.form .group {
-	background-color: #ddd;
+#form_page .form .group {
+	background-color: #ccc;
 	padding: 10px;
 }
 
@@ -32,7 +32,7 @@
 
 #meta_items {
 	padding: 10px;
-	background-color: #ddd;
+	background-color: #ccc;
 	margin-top: 10px;
 }
 
@@ -43,7 +43,7 @@
 /* STRUCTURE */
 
 #form_page #main, #form_page .inner, #form_page .content {
-	background-color: #aaa;
+/*	background-color: #aaa;*/
 }
 /*#sidebar {
   width: 300px;

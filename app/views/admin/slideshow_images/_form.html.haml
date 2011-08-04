@@ -1,17 +1,22 @@
 .group
   = f.label :slide_file_name, t("activerecord.attributes.slideshow_image.slide_file_name", :default => "Slide Image"), :class => :label
+  %span.description
+    Images should be in jpeg format.
+  %br/
   = f.file_field  :slide
+  %br/
   %span.description
     Current Image:
-    = @slideshow_image.slide_file_name ? (image_tag @slideshow_image.slide.url(:thumb)) : "None"
+  %br/
+  = @slideshow_image.slide_file_name ? (image_tag @slideshow_image.slide.url(:medium)) : "None"
 .group
   = f.label :caption, t("activerecord.attributes.slideshow_image.caption", :default => "Caption"), :class => :label
+  %span.description Brief text to accompany the image if desired.
   = f.text_field :caption, :class => 'text_field'
-  %span.description Ex: a simple text
 .group
   = f.label :slide_link, t("activerecord.attributes.slideshow_image.slide_link", :default => "Slide link"), :class => :label
+  %span.description Provide a url address for the image to link to.
   = f.text_field :slide_link, :class => 'text_field'
-  %span.description Ex: a simple text
 .group.navform.wat-cf
   %button.button{:type => "submit"}
     = image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
