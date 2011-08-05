@@ -1,5 +1,7 @@
 class Admin::SlideshowImagesController < ApplicationController
   layout 'admin'
+  before_filter :authenticate_user!
+  
   # GET /admin/slideshow_images
   # GET /admin/slideshow_images.xml
   def index

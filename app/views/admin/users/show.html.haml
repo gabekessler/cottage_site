@@ -20,7 +20,7 @@
         %b
           = t("activerecord.attributes.admin_user.last_sign_in_at", :default => t("activerecord.labels.last_sign_in_at", :default => "Last logged in at"))
           \:
-        = @user.last_sign_in_at.strftime("%D")
+        = @user.last_sign_in_at ? @user.last_sign_in_at.strftime("%D") : nil
       .wat-cf
         = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_admin_user_path(@user), :class => "button"
         = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), admin_user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
