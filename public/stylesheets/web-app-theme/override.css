@@ -61,8 +61,29 @@ margin-left: 20px;
 	float: right;
 }
 
+.formatted_text_area {
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+#meta_items_show {
+	padding: 10px;
+	background-color: #ccc;
+	margin-bottom: 10px;
+}
+
+#meta_items_show h3 {
+	margin: 0;
+}
+
 /* HELPERS */
 
 .clear {
 	clear: both;
+}
+
+/*TEXT*/
+
+li {
+	list-style-position: inside;
 }
