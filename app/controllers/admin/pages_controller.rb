@@ -49,7 +49,10 @@ class Admin::PagesController < ApplicationController
         format.html { redirect_to(admin_page_url(@page), :notice => 'Page was successfully created.') }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
-        format.html { render :action => "new" }
+        format.html { 
+          flash[:error] = 'There was an issue creating the Page.' 
+          render :new
+          }
         format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end
@@ -65,7 +68,10 @@ class Admin::PagesController < ApplicationController
         format.html { redirect_to(admin_page_url(@page), :notice => 'Page was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html {
+          flash[:error] = 'There was an issue updating the Page.' 
+          render :edit
+        }
         format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end

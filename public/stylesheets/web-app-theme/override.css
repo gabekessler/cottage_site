@@ -40,6 +40,18 @@
 	width: 99%;
 }
 
+.formErrors {
+	background-color: #F0393B;
+	padding: 10px;
+	font-size: 1.2em;
+	margin: 0 0 10px 0;
+	border: 1px solid #E1260D;
+}
+
+.field_with_errors label {
+	color: red;
+}
+
 /* STRUCTURE */
 
 #form_page #main, #form_page .inner, #form_page .content {

@@ -6,7 +6,7 @@
     = javascript_include_tag :defaults
     = javascript_include_tag "/javascripts/ckeditor/ckeditor.js"
     = csrf_meta_tag
-  %body{:id => (controller.action_name == 'edit' || controller.action_name == 'new') ? "form_page" : nil}
+  %body{:id => body_id}
     #container
       #header
         %h1
