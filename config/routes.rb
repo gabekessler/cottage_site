@@ -9,6 +9,8 @@ Cottage::Application.routes.draw do
     resources :locations
     resources :users
   end
+  
+  match ':id' => 'pages#show', :as => :page
 
   root :to => "admin/pages#index"
   # The priority is based upon order of creation:
