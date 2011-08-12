@@ -11,6 +11,19 @@ Cottage::Application.routes.draw do
   end
   
   match ':id' => 'pages#show', :as => :page
+  
+  # namespace :pages do
+  #   match 'about'
+  #   get 'services'
+  #   get 'locations'
+  #   get 'contact'
+  # end
+  
+  match 'home' => "pages#home"
+  match 'about' => "pages#about"
+  match 'services' => "pages#services"
+  match 'locations' => "pages#locations"
+  match 'contact' => "pages#contact"
 
   root :to => "admin/pages#index"
   # The priority is based upon order of creation:

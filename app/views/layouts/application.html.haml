@@ -10,5 +10,6 @@
     %p.alert= alert
     %ul
       - @pages.each do |page|
-        %li= link_to "#{page.title}", page, :title => "#{page.title}"
+        %li= link_to "#{page.title}", page_url(page), :title => "#{page.title}"
+    %h1= @page.title
     = yield
